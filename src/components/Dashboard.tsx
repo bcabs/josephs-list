@@ -11,6 +11,7 @@ export default function Dashboard() {
   const [tools, setTools] = useState<Tool[]>([]);
   const [groups, setGroups] = useState<Group[]>([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     if (user) {
@@ -26,6 +27,11 @@ export default function Dashboard() {
         .finally(() => setLoading(false));
     }
   }, [user]);
+
+  const filteredTools = tools.filter(tool => 
+    tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    tool.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   if (loading) return <div className="p-4 text-center">Loading community tools...</div>;
 
@@ -47,6 +53,17 @@ export default function Dashboard() {
           </Link>
         </div>
       </header>
+
+      {/* Search Bar */}
+      <div className="mb-6">
+        <input
+          type="text"
+          placeholder="Search tools..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+        />
+      </div>
 
       {/* Groups Quick Access */}
       <div className="mb-8 overflow-x-auto whitespace-nowrap pb-2 no-scrollbar">
@@ -70,14 +87,14 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {tools.length === 0 ? (
+      {filteredTools.length === 0 ? (
         <div className="text-center py-12 bg-white rounded-lg shadow-sm border border-gray-100">
-          <p className="text-gray-500 mb-4">No tools listed yet.</p>
-          <p className="text-sm text-gray-400">Join a group or list your first tool!</p>
+          <p className="text-gray-500 mb-4">No tools found.</p>
+          <p className="text-sm text-gray-400">Try a different search term or list your first tool!</p>
         </div>
       ) : (
         <div className="space-y-4">
-          {tools.map((tool) => (
+          {filteredTools.map((tool) => (
             <div key={tool.id} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
               {tool.image_url && (
                 <div className="aspect-video w-full relative bg-gray-100">
@@ -89,11 +106,26 @@ export default function Dashboard() {
                 </div>
               )}
               <div className="p-4">
-                <h3 className="font-semibold text-lg text-gray-800">{tool.name}</h3>
-                <p className="text-gray-600 text-sm mt-1">{tool.description}</p>
-                <div className="mt-2 text-xs text-gray-400">
-                  Listed in {groups.find(g => g.id === tool.group_id)?.name || 'Unknown Group'}
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-800">{tool.name}</h3>
+                    <p className="text-xs text-gray-500 mb-2">
+                      by{' '}
+                      <Link href={`/users/${tool.owner_id}`} className="text-blue-600 hover:underline font-medium">
+                        {tool.profiles?.full_name || 'Unnamed User'}
+                      </Link>
+                    </p>
+                  </div>
+                  {user?.id === tool.owner_id && (
+                    <Link 
+                      href={`/tools/${tool.id}/edit`}
+                      className="text-xs text-blue-600 hover:underline bg-blue-50 px-2 py-1 rounded"
+                    >
+                      Edit
+                    </Link>
+                  )}
                 </div>
+                <p className="text-gray-600 text-sm mt-1">{tool.description}</p>
               </div>
             </div>
           ))}

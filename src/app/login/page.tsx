@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -52,12 +53,24 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center p-4 bg-gray-50">
-      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
-          {isSignUp ? 'Join St. Joseph\'s List' : 'Welcome Back'}
-        </h1>
-        
-        {error && (
+      <div className="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="w-full bg-gray-100">
+          <img
+            src="/StJoseph.png"
+            alt="St. Joseph"
+            className="w-full h-auto block"
+          />
+        </div>
+        <div className="p-8">
+                <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
+                  {isSignUp ? 'Join St. Joseph\'s List' : 'Welcome Back'}
+                </h1>
+                        <div className="mb-8 text-center text-gray-600">
+                    <p className="text-sm italic">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                  </div>
+                {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-sm">
             {error}
           </div>
@@ -124,5 +137,6 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 }

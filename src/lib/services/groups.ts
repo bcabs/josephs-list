@@ -3,6 +3,7 @@ import { supabase } from '@/lib/supabase';
 export interface Group {
   id: string;
   name: string;
+  description?: string;
   admin_id: string;
   created_at: string;
 }
@@ -66,6 +67,18 @@ export const getGroupDetails = async (groupId: string) => {
     .from('groups')
     .select('*')
     .eq('id', groupId)
+    .single();
+
+  if (error) throw error;
+  return data as Group;
+};
+
+export const updateGroup = async (groupId: string, updates: Partial<Pick<Group, 'name' | 'description'>>) => {
+  const { data, error } = await supabase
+    .from('groups')
+    .update(updates)
+    .eq('id', groupId)
+    .select()
     .single();
 
   if (error) throw error;

@@ -6,12 +6,15 @@ export interface Tool {
   description: string;
   image_url: string;
   owner_id: string;
-  group_id: string;
   created_at: string;
+  profiles?: {
+    full_name: string;
+    email: string;
+  };
 }
 
 export const createTool = async (
-  tool: Omit<Tool, 'id' | 'created_at' | 'owner_id'>,
+  tool: Omit<Tool, 'id' | 'created_at' | 'owner_id' | 'profiles'>,
   ownerId: string
 ) => {
   const { data, error } = await supabase
@@ -25,42 +28,72 @@ export const createTool = async (
 };
 
 export const getGroupTools = async (groupId: string) => {
+  // This function might be less relevant now if we don't filter by group in the DB,
+  // but we could still filter by users who are in that group.
+  const { data: members, error: memberError } = await supabase
+    .from('group_members')
+    .select('user_id')
+    .eq('group_id', groupId);
+
+  if (memberError) throw memberError;
+  const userIds = members.map(m => m.user_id);
+
   const { data, error } = await supabase
     .from('tools')
-    .select('*')
-    .eq('group_id', groupId)
+    .select('*, profiles(full_name, email)')
+    .in('owner_id', userIds)
     .order('created_at', { ascending: false });
+
+  if (error) throw error;
+  return data as Tool[];
+};
+
+export const getAllUserTools = async (userId: string) => {
+  // With the new RLS, we can just fetch all tools. 
+  // RLS will automatically filter to only those the user is allowed to see.
+  const { data: tools, error: toolError } = await supabase
+    .from('tools')
+    .select('*, profiles(full_name, email)')
+    .order('created_at', { ascending: false });
+
+  if (toolError) throw toolError;
+
+  return tools as Tool[];
+};
+
+export const getToolsByOwner = async (ownerId: string) => {
+  const { data, error } = await supabase
+    .from('tools')
+    .select('*, profiles(full_name, email)')
+    .eq('owner_id', ownerId)
+    .order('created_at', { ascending: false });
+
+  if (error) throw error;
+  return data as Tool[];
+};
+
+export const updateTool = async (
+  id: string,
+  updates: Partial<Omit<Tool, 'id' | 'created_at' | 'owner_id'>>
+) => {
+  const { data, error } = await supabase
+    .from('tools')
+    .update(updates)
+    .eq('id', id)
+    .select()
+    .single();
 
   if (error) throw error;
   return data;
 };
 
-export const getAllUserTools = async (userId: string) => {
-  // complex query to get tools from all groups the user is in
-  // For MVP: We fetch all tools where group_id matches groups the user is in.
-  // This might be better done with a Postgres function or view for performance later.
-  
-  // First get user's groups
-  const { data: groups, error: groupError } = await supabase
-    .from('group_members')
-    .select('group_id')
-    .eq('user_id', userId);
-
-  if (groupError) throw groupError;
-
-  const groupIds = groups.map(g => g.group_id);
-
-  if (groupIds.length === 0) return [];
-
-  const { data: tools, error: toolError } = await supabase
+export const deleteTool = async (id: string) => {
+  const { error } = await supabase
     .from('tools')
-    .select('*')
-    .in('group_id', groupIds)
-    .order('created_at', { ascending: false });
+    .delete()
+    .eq('id', id);
 
-  if (toolError) throw toolError;
-
-  return tools;
+  if (error) throw error;
 };
 
 export const uploadToolImage = async (file: File) => {
