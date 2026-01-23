@@ -113,3 +113,4 @@ This website ought to be:
 - Added branding image (NamelessJoseph.png) to the login page.
 - Added placeholder description text to the login page.
 \n### 2026-01-23 03:00 PM\n- Added bio field to user profiles and enabled editing.\n- Refactored dashboard group navigation to use a dedicated 'Manage Groups' page.
+\n### 2026-01-23 03:15 PM\n- Updated dashboard buttons: 'List Tool', 'Manage Groups', and 'Manage Profile' are now uniform and grouped in the header.
