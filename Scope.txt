@@ -102,5 +102,14 @@ This website ought to be:
 - MVP Deployed and Verified.
 
 
-\n### Work Log - 2026-01-23\n- Implemented global tool visibility based on shared group membership.\n- Added search functionality to the tool dashboard.\n- Implemented tool editing and deletion for owners.\n- Added owner names and links to user profile pages on tool listings.\n- Added editable description field for groups.
-\n### Work Log - 2026-01-23\n- Added branding image (StJoseph.png) to the login page.\n- Added placeholder description text to the login page.
+### 2026-01-23 02:00 PM
+- Implemented global tool visibility based on shared group membership.
+- Added search functionality to the tool dashboard.
+- Implemented tool editing and deletion for owners.
+- Added owner names and links to user profile pages on tool listings.
+- Added editable description field for groups.
+
+### 2026-01-23 02:30 PM
+- Added branding image (NamelessJoseph.png) to the login page.
+- Added placeholder description text to the login page.
+\n### 2026-01-23 03:00 PM\n- Added bio field to user profiles and enabled editing.\n- Refactored dashboard group navigation to use a dedicated 'Manage Groups' page.

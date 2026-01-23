@@ -55,7 +55,7 @@ export default function Dashboard() {
       </header>
 
       {/* Search Bar */}
-      <div className="mb-6">
+      <div className="mb-4">
         <input
           type="text"
           placeholder="Search tools..."
@@ -65,26 +65,14 @@ export default function Dashboard() {
         />
       </div>
 
-      {/* Groups Quick Access */}
-      <div className="mb-8 overflow-x-auto whitespace-nowrap pb-2 no-scrollbar">
-        <div className="inline-flex gap-2">
-          <Link 
-             href="/groups/create"
-             className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300 font-bold flex-shrink-0"
-             title="Create Group"
-          >
-            +
-          </Link>
-          {groups.map(group => (
-            <Link
-              key={group.id}
-              href={`/groups/${group.id}`}
-              className="inline-block px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700 hover:border-blue-400 hover:text-blue-600 transition flex-shrink-0"
-            >
-              {group.name}
-            </Link>
-          ))}
-        </div>
+      {/* Manage Groups Button */}
+      <div className="mb-6">
+        <Link 
+          href="/groups"
+          className="block w-full text-center py-2 bg-gray-100 text-gray-700 rounded-lg border border-gray-200 hover:bg-gray-200 transition font-medium"
+        >
+          Manage Groups
+        </Link>
       </div>
 
       {filteredTools.length === 0 ? (
