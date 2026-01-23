@@ -72,6 +72,17 @@ export const getToolsByOwner = async (ownerId: string) => {
   return data as Tool[];
 };
 
+export const getToolDetails = async (id: string) => {
+  const { data, error } = await supabase
+    .from('tools')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) throw error;
+  return data as Tool;
+};
+
 export const updateTool = async (
   id: string,
   updates: Partial<Omit<Tool, 'id' | 'created_at' | 'owner_id'>>
