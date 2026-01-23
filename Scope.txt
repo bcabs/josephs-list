@@ -1,0 +1,26 @@
+St. Joseph's List
+
+## Statement
+
+A community-based tool-sharing website. The idea is to allow users to share tools they own within small, real-world communities that they are a part of. Users can be invited to join specific "groups" and create tool listings that are shown only to other members of the groups that they belong to. 
+
+The following needs to be supported: 
+
+- User account creation w/ email verification
+- User "group" creation, with admin privaledges for the "group creator"
+- Ability for the admin to invite users via email to join a specific group
+- The ability for a user to create a "tool listing" that specifies some text and a picture of the tool that they are willing to lend to other users
+- The ability for members of a group to view tool listings across all the groups they are a part of
+
+This website ought to be: 
+
+- Accessable via phone browsers. I don't want an app that needs to be installed (yet) - I just want the website to be very mobile friendly. 
+- Hosted in the cloud in as cheap and standard a way possible - minimizing maintenance complexity
+
+## Architecture
+
+- The frontend will be Next.js + Tailwind CSS
+- The backend will be Supabase
+	- group membership will be implemented using row-based auth
+- The site will be hosted on Vercel
+
