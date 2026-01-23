@@ -40,10 +40,16 @@ export default function Dashboard() {
       <header className="mb-6">
         <div className="flex justify-between items-center mb-4">
           <div>
-            <h1 className="text-3xl font-[family-name:var(--font-nova-cut)] text-gray-800">Community Tools</h1>
-            <button onClick={() => signOut()} className="text-xs text-red-500 hover:underline">
-              Sign Out
-            </button>
+            <h1 className="text-3xl font-[family-name:var(--font-medieval-sharp)] font-bold text-gray-800">St. Joseph's List</h1>
+            <div className="flex gap-3 text-xs">
+              <button onClick={() => signOut()} className="text-red-500 hover:underline">
+                Sign Out
+              </button>
+              <span className="text-gray-300">|</span>
+              <Link href="/about" className="text-gray-500 hover:underline">
+                About
+              </Link>
+            </div>
           </div>
         </div>
         

@@ -1,0 +1,42 @@
+# This text will go on the Login page:
+
+St. Joseph's List is a community-based tool-sharing website. Basically "Craigslist, but for just your local church". The tools you add are only visible to people in the same groups as you. You can be part of multiple groups, and create one if you want. 
+
+🚧 This is an early-alpha. 🚧
+
+Expect random changes and for database state to be dropped. 
+
+# This text will go on the "About" page: 
+
+This was built by Bruno Cabral using AI. The backend is Vercel and Supabase. 
+
+"All the believers were together and had everything in common". There is nothing more pleasing to the male Midwestern soul than lending a tool to a friend. This site was created with this intention in mind. 
+
+The key "innovation" here is to center everything around groups that you are a part of in real-life. The tool listings that you create are visible to all the members of the groups that you are a part of.  
+
+For now - I just want to deliver on the core "tool sharing" functionality, but I would love to expand this to cover things like "work wanted", "work offered", "giveaway items", etc. What I don't want to do is turn this into a social-network. All 1-1 communication should occur directly, outside of the app. 
+
+Use this site with zero expectations of privacy and security. Assume that everything you post will be published in the Northwest Herald tomorrow. 
+
+Feedback and suggestions are very much welcome. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

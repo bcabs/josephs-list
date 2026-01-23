@@ -1,7 +1,6 @@
 # Always do the following
 
 - For each request-fulfilled, write out a note w/ a timestamp to the end of Scope.txt that describes what was changed. 
-- Feel free to run `git commit` and `git push`
 
 ## Things to do next
 

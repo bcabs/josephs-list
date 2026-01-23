@@ -66,15 +66,19 @@ export default function LoginPage() {
               </div>
             </div>
             <div className="">
-              <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
-    
-                  {isSignUp ? 'Join St. Joseph\'s List' : 'Welcome Back'}
-                </h1>
-                        <div className="mb-8 text-center text-gray-600">
-                    <p className="text-sm italic">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
+              <h1 className="text-3xl font-[family-name:var(--font-medieval-sharp)] font-bold mb-6 text-center text-gray-800">
+                St. Joseph's List
+              </h1>
+                            <div className="mb-8 text-center text-gray-600 space-y-4">
+                              <p className="text-sm">
+                                St. Joseph's List is a community-based tool-sharing website. Basically "Craigslist, but for just your local church". The tools you add are only visible to people in the same groups as you. You can be part of multiple groups, and create one if you want.
+                              </p>
+                              <div className="text-xs bg-yellow-50 border border-yellow-200 p-2 rounded text-yellow-800">
+                                <p className="font-bold">🚧 This is an early-alpha. 🚧</p>
+                                <p>Expect random changes and for database state to be dropped.</p>
+                              </div>
+                            </div>
+              
                 {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-sm">
             {error}

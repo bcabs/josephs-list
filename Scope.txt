@@ -115,3 +115,8 @@ This website ought to be:
 \n### 2026-01-23 03:00 PM\n- Added bio field to user profiles and enabled editing.\n- Refactored dashboard group navigation to use a dedicated 'Manage Groups' page.
 \n### 2026-01-23 03:15 PM\n- Updated dashboard buttons: 'List Tool', 'Manage Groups', and 'Manage Profile' are now uniform and grouped in the header.
 \n### 2026-01-23 03:30 PM\n- Updated 'Community Tools' header font to Nova Cut.
+\n### 2026-01-23 03:45 PM\n- Renamed app title to 'St. Joseph's List'.\n- Added 'About' page link to the dashboard header.
+### 2026-01-23 03:50 PM\n- Updated login page title to 'St. Joseph's List' and applied Nova Cut font.
+### 2026-01-23 03:55 PM\n- Switched header font from Nova Cut to Medieval Sharp across the application.
+\n### 2026-01-23 04:00 PM\n- Updated Login and About pages with real copy from Prose.txt.
+### 2026-01-23 04:05 PM\n- Applied bold styling to 'St. Joseph\'s List' headers.
