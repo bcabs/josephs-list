@@ -30,6 +30,8 @@ export default function UserProfilePage() {
   }, [userId]);
 
   const loadData = () => {
+    if (!userId) return;
+    
     Promise.all([
       getProfile(userId),
       getToolsByOwner(userId)
