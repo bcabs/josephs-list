@@ -27,6 +27,7 @@ export default function GroupDetailsPage() {
   }, [user, groupId]);
 
   const loadGroupData = async () => {
+    if (!groupId) return;
     try {
       const groupData = await getGroupDetails(groupId);
       setGroup(groupData);
@@ -42,6 +43,8 @@ export default function GroupDetailsPage() {
 
   const handleInvite = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!groupId) return;
+    
     setInviteLoading(true);
     setError(null);
     setMessage(null);
