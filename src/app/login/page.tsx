@@ -56,7 +56,7 @@ export default function LoginPage() {
       <div className="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden">
         <div className="w-full bg-gray-100">
           <img
-            src="/StJoseph.png"
+            src="/NamelessJoseph.png"
             alt="St. Joseph"
             className="w-full h-auto block"
           />
