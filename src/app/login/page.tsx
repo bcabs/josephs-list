@@ -52,17 +52,22 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-4 bg-gray-50">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden">
-        <div className="w-full bg-gray-100">
-          <img
-            src="/NamelessJoseph.png"
-            alt="St. Joseph"
-            className="w-full h-auto block"
-          />
-        </div>
-        <div className="p-8">
-                <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
+        <div className="flex min-h-screen flex-col items-center justify-center p-4 bg-gray-50">
+          <div className="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden p-8">
+            <div className="flex justify-center mb-6">
+              <div className="relative w-48 h-48">
+                <Image
+                  src="/NamelessJoseph.png"
+                  alt="St. Joseph"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </div>
+            <div className="">
+              <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
+    
                   {isSignUp ? 'Join St. Joseph\'s List' : 'Welcome Back'}
                 </h1>
                         <div className="mb-8 text-center text-gray-600">
