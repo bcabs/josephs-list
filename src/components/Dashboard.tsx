@@ -40,7 +40,7 @@ export default function Dashboard() {
       <header className="mb-6">
         <div className="flex justify-between items-center mb-4">
           <div>
-            <h1 className="text-2xl font-bold text-gray-800">Community Tools</h1>
+            <h1 className="text-3xl font-[family-name:var(--font-nova-cut)] text-gray-800">Community Tools</h1>
             <button onClick={() => signOut()} className="text-xs text-red-500 hover:underline">
               Sign Out
             </button>
