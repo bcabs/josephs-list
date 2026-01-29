@@ -171,7 +171,17 @@ export default function UserProfilePage() {
                     </div>
                   )}
                   <div className="p-4">
-                    <h3 className="font-semibold text-lg text-gray-800">{tool.name}</h3>
+                    <div className="flex justify-between items-start">
+                      <h3 className="font-semibold text-lg text-gray-800">{tool.name}</h3>
+                      {isOwner && (
+                        <Link 
+                          href={`/tools/${tool.id}/edit`}
+                          className="text-xs text-blue-600 hover:underline bg-blue-50 px-2 py-1 rounded"
+                        >
+                          Edit
+                        </Link>
+                      )}
+                    </div>
                     <p className="text-gray-600 text-sm mt-1">{tool.description}</p>
                   </div>
                 </div>

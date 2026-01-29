@@ -65,6 +65,18 @@ This website ought to be:
 
 ---
 
+# Next Round: Feature Enhancements
+
+## Phase 6: Borrowing & Engagement
+- [ ] **17. Tool Availability Status**: Add ability to mark tools as "Available" or "Borrowed".
+- [ ] **18. Borrowing Flow**: Request system where users can ask to borrow a tool, and owners approve/deny.
+- [ ] **19. Search & Filter**: Filter dashboard by specific groups or search for tools by name.
+- [ ] **20. User Profiles**: Page to edit full name and avatar.
+- [ ] **21. Email Notifications**: Integrate with a provider (e.g., Resend) to send real emails for invites and borrow requests.
+- [ ] **22. Admin Tools**: Allow group admins to remove members or delete inappropriate listings.
+
+---
+
 # Work Log
 
 ### 2026-01-23
@@ -120,3 +132,5 @@ This website ought to be:
 - Applied bold styling to 'St. Joseph\'s List' headers.
 ### 2026-01-28 12:00 PM
 - Implemented email invitation for non-existent users when adding them to a group. Created a Server Action `inviteUserToGroupAction` to handle the invitation flow securely using `supabaseAdmin` to trigger the invite email and add the user (new or existing) to the group.
+### 2026-01-28 12:15 PM
+- Added "Edit" buttons to tool listings on the User Profile page for owners. This allows users to easily modify their own tool listings directly from their profile.
