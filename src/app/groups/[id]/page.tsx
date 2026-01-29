@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
-import { getGroupDetails, getGroupMembers, inviteUserByEmail, updateGroup, Group, GroupMember } from '@/lib/services/groups';
+import { getGroupDetails, getGroupMembers, updateGroup, Group, GroupMember } from '@/lib/services/groups';
+import { inviteUserToGroupAction } from '../actions';
 import Link from 'next/link';
 
 export default function GroupDetailsPage() {
@@ -75,10 +76,14 @@ export default function GroupDetailsPage() {
     setMessage(null);
 
     try {
-      await inviteUserByEmail(groupId, inviteEmail);
-      setMessage('User added successfully!');
-      setInviteEmail('');
-      loadGroupData(); // Refresh list
+      const result = await inviteUserToGroupAction(groupId, inviteEmail);
+      if (result.success) {
+        setMessage(result.message);
+        setInviteEmail('');
+        loadGroupData(); // Refresh list
+      } else {
+        setError(result.message);
+      }
     } catch (err: any) {
       setError(err.message);
     } finally {

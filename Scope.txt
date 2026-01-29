@@ -65,18 +65,6 @@ This website ought to be:
 
 ---
 
-# Next Round: Feature Enhancements
-
-## Phase 6: Borrowing & Engagement
-- [ ] **17. Tool Availability Status**: Add ability to mark tools as "Available" or "Borrowed".
-- [ ] **18. Borrowing Flow**: Request system where users can ask to borrow a tool, and owners approve/deny.
-- [ ] **19. Search & Filter**: Filter dashboard by specific groups or search for tools by name.
-- [ ] **20. User Profiles**: Page to edit full name and avatar.
-- [ ] **21. Email Notifications**: Integrate with a provider (e.g., Resend) to send real emails for invites and borrow requests.
-- [ ] **22. Admin Tools**: Allow group admins to remove members or delete inappropriate listings.
-
----
-
 # Work Log
 
 ### 2026-01-23
@@ -112,11 +100,23 @@ This website ought to be:
 ### 2026-01-23 02:30 PM
 - Added branding image (NamelessJoseph.png) to the login page.
 - Added placeholder description text to the login page.
-\n### 2026-01-23 03:00 PM\n- Added bio field to user profiles and enabled editing.\n- Refactored dashboard group navigation to use a dedicated 'Manage Groups' page.
-\n### 2026-01-23 03:15 PM\n- Updated dashboard buttons: 'List Tool', 'Manage Groups', and 'Manage Profile' are now uniform and grouped in the header.
-\n### 2026-01-23 03:30 PM\n- Updated 'Community Tools' header font to Nova Cut.
-\n### 2026-01-23 03:45 PM\n- Renamed app title to 'St. Joseph's List'.\n- Added 'About' page link to the dashboard header.
-### 2026-01-23 03:50 PM\n- Updated login page title to 'St. Joseph's List' and applied Nova Cut font.
-### 2026-01-23 03:55 PM\n- Switched header font from Nova Cut to Medieval Sharp across the application.
-\n### 2026-01-23 04:00 PM\n- Updated Login and About pages with real copy from Prose.txt.
-### 2026-01-23 04:05 PM\n- Applied bold styling to 'St. Joseph\'s List' headers.
+### 2026-01-23 03:00 PM
+- Added bio field to user profiles and enabled editing.
+- Refactored dashboard group navigation to use a dedicated 'Manage Groups' page.
+### 2026-01-23 03:15 PM
+- Updated dashboard buttons: 'List Tool', 'Manage Groups', and 'Manage Profile' are now uniform and grouped in the header.
+### 2026-01-23 03:30 PM
+- Updated 'Community Tools' header font to Nova Cut.
+### 2026-01-23 03:45 PM
+- Renamed app title to 'St. Joseph's List'.
+- Added 'About' page link to the dashboard header.
+### 2026-01-23 03:50 PM
+- Updated login page title to 'St. Joseph's List' and applied Nova Cut font.
+### 2026-01-23 03:55 PM
+- Switched header font from Nova Cut to Medieval Sharp across the application.
+### 2026-01-23 04:00 PM
+- Updated Login and About pages with real copy from Prose.txt.
+### 2026-01-23 04:05 PM
+- Applied bold styling to 'St. Joseph\'s List' headers.
+### 2026-01-28 12:00 PM
+- Implemented email invitation for non-existent users when adding them to a group. Created a Server Action `inviteUserToGroupAction` to handle the invitation flow securely using `supabaseAdmin` to trigger the invite email and add the user (new or existing) to the group.
